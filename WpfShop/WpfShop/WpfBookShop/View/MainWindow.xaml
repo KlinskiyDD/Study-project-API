@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfBookShop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfBookShop"
+        mc:Ignorable="d"
+        Title="Книги" Height="280" Width="600">
+    <Grid>
+        <ListView x:Name="listbookview" ItemsSource="{Binding AllBook}" SelectedItem="{Binding SelectedBook}">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить" Command="{Binding OpenAddWindow}"/>
+                    <MenuItem Header="Изменить" Command="{Binding OpenEditWindow}"/>
+                    <MenuItem Header="Удалить" Command="{Binding DeleteButton}"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding BookName}" Width="100" Header="Название"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding AuthorName}" Width="100" Header="Автор"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Width="300" Header="Описание"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Width="100" Header="Цена"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

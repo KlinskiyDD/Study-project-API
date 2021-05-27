@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Shop.Data.Models.Book>
+@{
+    ViewBag.Title = "Все книги";
+}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    @{ foreach (var book in Model)
+        {
+        <div class="col">
+                <div class="card shadow-sm">
+                    <img class="d-placeholder-img card-img-top" src="@book.Img" alt="@book.BookName" />     
+                    <div class="card-body">
+                        <p class="card-text"><h2>@book.BookName</h2></p>
+                        <h2>@book.AuthorName</h2>
+                        <p>@book.Description</p>
+                        <p>Цена: @book.Price.ToString("c")</p>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a asp-controller="Book" asp-action="EditBook" asp-route-id="@book.Id" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                                </div>
+                                <div class="btn-group">
+                                    <a asp-controller="Book" asp-action="DeleteBook" asp-route-id="@book.Id" class="btn btn-sm btn-outline-secondary">Удалить</a>
+                                </div>
+                             </div>
+                        }
+                    </div>
+                </div>
+        </div>
+        }
+    }
+</div>

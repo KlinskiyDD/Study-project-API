@@ -1,0 +1,39 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Заголовок</title>
+    <style type="text/css">
+        .brd{
+            border: 4px double black;
+            background: #e9e5e5;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+        <form action="~/Book/CreateBook" enctype="multipart/form-data" method="post">
+            <div class="form-group">
+                <label class="control-label">Название книги</label><br />
+                <input type="text" name="bookName"  class="form-control" value="Какое-то название" /><br />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Автор</label><br />
+                <input class="form-control" type="text" name="authorName" value="Какой-то автор" /><br />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Описание</label><br />
+                <input class="form-control" type="text" name="description" value="Какое-то описание" /><br />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Картинка</label><br />
+                <input class="form-control" type="file" name="file" /><br />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Цена</label><br />
+                <input class="form-control" type="number" name="price" value="1000" /><br />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-sm btn-outline-secondary" />
+            </div>
+        </form>
+</body>
+</html>

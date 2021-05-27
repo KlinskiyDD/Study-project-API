@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/bootstrap1.min.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        .myfooter {
+            text-align:center;
+        }  
+    </style>
+</head>
+<body class="mycontainer">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                @await Component.InvokeAsync("LogoutView")
+            </div>
+        </nav>
+    </header>
+
+    <main class="album py-4">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main> 
+    
+    <footer class="container myfooter">
+        My Books Store @DateTime.Now.Year
+    </footer>
+
+</body>
+</html>
